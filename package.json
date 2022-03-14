@@ -44,7 +44,9 @@
     "last 2 versions"
   ],
   "dependencies": {
-    "vue": "^3.2.31"
+    "chart.js": "^3.7.1",
+    "vue": "^3.2.31",
+    "vue-chartjs": "^3.5.1"
   },
   "lint-staged": {
     "*.{js,vue}": [
