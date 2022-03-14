@@ -88,6 +88,6 @@ const getMatchRate = (a, b) => {
   return (rates * 100) / keys.length;
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import "~/scss/chartDoughnut";
 </style>
