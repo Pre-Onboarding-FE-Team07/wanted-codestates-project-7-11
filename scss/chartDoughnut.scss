@@ -1,0 +1,47 @@
+section {
+  text-align: center;
+  padding: 1rem;
+}
+
+.title-wrap {
+  width: 100%;
+  .subject {
+    margin-bottom: 1rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+  }
+  .title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+}
+.chart-wrap {
+  position: relative;
+  .chart {
+    margin-bottom: 1rem;
+  }
+
+  .result {
+    position: absolute;
+    top: calc(50% + 20px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    @media (max-width: 360px) {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none;
+    }
+    p {
+      > * {
+        vertical-align: middle;
+      }
+      b {
+        font-size: 1.6rem;
+        color: rgba(110, 60, 249);
+      }
+    }
+  }
+}
