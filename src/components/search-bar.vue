@@ -5,7 +5,7 @@
   </div>
   <input
     type="text"
-    v-model="text"
+    v-model.trim="text"
     placeholder="기업명을 검색하세요."
     @input="change"
     @focus="focus"
@@ -46,7 +46,7 @@ export default {
   methods: {
     change({ target: { value } }) {
       this.matched = true;
-      this.suggestions = value ? getSuggestions(value) : [];
+      this.suggestions = value ? getSuggestions(value.trim()) : [];
     },
     focus() {
       this.focused = true;
