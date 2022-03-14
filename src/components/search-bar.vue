@@ -8,14 +8,17 @@
     v-model="text"
     placeholder="기업명을 검색하세요."
     @input="change"
+    @focus="focus"
     @blur="blur"
     @keypress.enter="submit"
   />
-  <ul>
-    <li v-for="(suggestion, index) in suggestions" :key="index">
-      {{ suggestion }}
-    </li>
-  </ul>
+  <div v-if="focused">
+    <ul>
+      <li v-for="(suggestion, index) in suggestions" :key="index">
+        {{ suggestion }}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -35,15 +38,18 @@ export default {
       text: "",
       query: "",
       suggestions: [],
-      showList: false,
+      focused: false,
     };
   },
   methods: {
     change({ target: { value } }) {
       this.suggestions = value ? getSuggestions(value) : [];
     },
+    focus() {
+      this.focused = true;
+    },
     blur() {
-      this.suggestions = [];
+      this.focused = false;
     },
     submit() {
       const suggestion = this.suggestions[0];
