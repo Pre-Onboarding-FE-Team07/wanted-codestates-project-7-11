@@ -1,6 +1,7 @@
 <template>
   <section>
     <RadarChart :chart-data="testData" :options="options" />
+    <img src="radar_cat.png" />
   </section>
 </template>
 
@@ -17,6 +18,7 @@ export default defineComponent({
   setup() {
     const options = {
       reposive: true,
+
       plugins: {
         legend: { display: false },
         tooltip: { enabled: false },
@@ -33,17 +35,17 @@ export default defineComponent({
           ticks: {
             display: false,
             stepSize: 2,
-            min: 0,
+            max: 10,
           },
           pointLabels: {
             color: "#121212",
             font: {
               family: "Noto Sans",
-              size: 13,
+              size: 12,
               lineHeight: 1.3,
               weight: 700,
             },
-            padding: 25,
+            padding: 20,
           },
         },
       },
@@ -98,4 +100,17 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+section {
+  position: relative;
+  img {
+    width: 54px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+  }
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+</style>
