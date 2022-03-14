@@ -12,7 +12,7 @@
     @blur="blur"
     @keypress.enter="submit"
   />
-  <div v-if="focused && suggestions.length">
+  <div v-if="focused">
     <ul v-if="matched">
       <li v-for="(suggestion, index) in suggestions" :key="index">
         {{ suggestion }}
@@ -34,6 +34,7 @@ function getSuggestions(keyword) {
 
 export default {
   name: "SearchBar",
+  emits: ["search"],
   data() {
     return {
       text: "",
@@ -59,6 +60,7 @@ export default {
       if (suggestion) {
         this.query = suggestion;
         this.text = suggestion;
+        this.$emit("search", suggestion);
       } else {
         this.matched = false;
       }
