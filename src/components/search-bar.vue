@@ -12,12 +12,13 @@
     @blur="blur"
     @keypress.enter="submit"
   />
-  <div v-if="focused">
-    <ul>
+  <div v-if="focused && suggestions.length">
+    <ul v-if="matched">
       <li v-for="(suggestion, index) in suggestions" :key="index">
         {{ suggestion }}
       </li>
     </ul>
+    <span v-else>해당 기업 정보가 없습니다.</span>
   </div>
 </template>
 
@@ -39,10 +40,12 @@ export default {
       query: "",
       suggestions: [],
       focused: false,
+      matched: true,
     };
   },
   methods: {
     change({ target: { value } }) {
+      this.matched = true;
       this.suggestions = value ? getSuggestions(value) : [];
     },
     focus() {
@@ -56,6 +59,8 @@ export default {
       if (suggestion) {
         this.query = suggestion;
         this.text = suggestion;
+      } else {
+        this.matched = false;
       }
     },
   },
