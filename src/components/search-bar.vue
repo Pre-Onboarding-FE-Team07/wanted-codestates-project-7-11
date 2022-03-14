@@ -9,7 +9,7 @@
     placeholder="기업명을 검색하세요."
     @input="change"
     @blur="blur"
-    @keyup.enter="submit"
+    @keypress.enter="submit"
   />
   <ul>
     <li v-for="(suggestion, index) in suggestions" :key="index">
