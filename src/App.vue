@@ -1,13 +1,15 @@
 <template>
-  <h1>{{ message }}</h1>
+  <main id="App">
+    <PentagonView />
+  </main>
 </template>
 
 <script>
+import PentagonView from "./components/PentagonView.vue";
 export default {
-  data() {
-    return {
-      message: "Hello Vue!!!",
-    };
+  name: "App",
+  components: {
+    PentagonView,
   },
 };
 </script>
