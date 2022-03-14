@@ -4,7 +4,7 @@
       <p class="subject">MATCHING RATE</p>
       <h1 class="title">나와 기업의 매칭률은?</h1>
     </div>
-    <div class="chart-wrap">
+    <div class="chart-wrap" v-if="enterprise">
       <DoughnutChart
         class="chart"
         :chart-data="chartData"
@@ -17,11 +17,12 @@
         </p>
       </div>
     </div>
+    <div class="empty" v-else>선택된 기업이 없습니다.</div>
   </section>
 </template>
 
 <script>
-import { defineComponent, toRefs } from "vue";
+import { defineComponent } from "vue";
 import { DoughnutChart } from "vue-chart-3";
 import { Chart, registerables } from "chart.js";
 
@@ -39,23 +40,40 @@ export default defineComponent({
     },
   },
   components: { DoughnutChart },
-  setup(props) {
-    const { enterprise, userResult } = toRefs(props);
-    const chartOptions = {
-      options: {},
+  data() {
+    return {
+      chartData: {},
+      matchRate: null,
+      chartOptions: {
+        options: {},
+      },
     };
-
-    const matchRate = Math.round(getMatchRate(userResult, enterprise.result));
-    const chartData = {
-      labels: ["매칭률(%)"],
-      datasets: [
-        {
-          data: [matchRate, 100 - matchRate],
-          backgroundColor: ["#6C87F580", "#F7F7F7"],
-        },
-      ],
-    };
-    return { chartData, chartOptions, matchRate };
+  },
+  watch: {
+    enterprise() {
+      this.createChart();
+    },
+  },
+  methods: {
+    createChart() {
+      if (!this.enterprise) {
+        return false;
+      }
+      const matchRate = Math.round(
+        getMatchRate(this.userResult, this.enterprise.result)
+      );
+      const chartData = {
+        labels: ["매칭률(%)"],
+        datasets: [
+          {
+            data: [matchRate, 100 - matchRate],
+            backgroundColor: ["#6C87F580", "#F7F7F7"],
+          },
+        ],
+      };
+      this.chartData = chartData;
+      this.matchRate = matchRate;
+    },
   },
 });
 
