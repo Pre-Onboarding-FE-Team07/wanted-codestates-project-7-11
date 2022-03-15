@@ -19,8 +19,8 @@
 
 <script>
 import { computed } from "vue";
-import userData from "./datas/user.json";
-import enterpriseData from "./datas/enterprise.json";
+import userData from "./data/user.json";
+import enterpriseData from "./data/enterprise.json";
 import HeaderBarVue from "./components/HeaderBar.vue";
 import SearchBarVue from "./components/SearchBar.vue";
 import ChartPentagonVue from "./components/ChartPentagon.vue";

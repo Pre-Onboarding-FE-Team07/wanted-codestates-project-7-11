@@ -1,0 +1,972 @@
+[
+  {
+    "enterprise": "삼성전자",
+    "result": {
+      "aggressive": 10,
+      "confident": 9,
+      "responsible": 9,
+      "indivisual": 5,
+      "horizontal": 3
+    }
+  },
+  {
+    "enterprise": "카카오",
+    "result": {
+      "aggressive": 6,
+      "confident": 7,
+      "responsible": 7,
+      "indivisual": 8,
+      "horizontal": 9
+    }
+  },
+  {
+    "enterprise" : "LG CNS",
+    "result" : {
+      "aggressive" : 7,
+      "confident" : 7,
+      "responsible": 7,
+      "indivisual": 7,
+      "horizontal": 7
+    }
+  },
+  {
+    "enterprise": "배달의 민족",
+    "result": {
+      "aggressive": 4,
+      "confident": 4,
+      "responsible": 4,
+      "indivisual": 6,
+      "horizontal": 7
+    }
+  },
+  {
+    "enterprise": "우아한 형제들",
+    "result": {
+      "aggressive": 6,
+      "confident": 6,
+      "responsible": 7,
+      "indivisual": 5,
+      "horizontal": 9
+    }
+  },
+  {
+    "enterprise": "카카오 엔터테인먼트",
+    "result": {
+      "aggressive": 8,
+      "confident": 5,
+      "responsible": 6,
+      "indivisual": 8,
+      "horizontal": 5
+    }
+  },
+  {
+    "enterprise": "카카오 모빌리티",
+    "result": {
+      "aggressive": 9,
+      "confident": 9,
+      "responsible": 5,
+      "indivisual": 3,
+      "horizontal": 5
+    }
+  },
+  {
+    "enterprise": "코드스테이츠",
+    "result": {
+      "aggressive": 4,
+      "confident": 8,
+      "responsible": 9,
+      "indivisual": 5,
+      "horizontal": 7
+    }
+  },
+  {
+    "enterprise": "원티드",
+    "result": {
+      "aggressive": 5,
+      "confident": 8,
+      "responsible": 4,
+      "indivisual": 7,
+      "horizontal": 5
+    }
+  },
+  {
+    "enterprise": "네이버",
+    "result": {
+      "aggressive": 4,
+      "confident": 3,
+      "responsible": 8,
+      "indivisual": 6,
+      "horizontal": 4
+    }
+  },
+  {
+    "enterprise": "Devon Energy",
+    "result": {
+      "aggressive": 6,
+      "confident": 5,
+      "responsible": 4,
+      "indivisual": 5,
+      "horizontal": 5
+    }
+  },
+  {
+    "enterprise": "Pioneer Natural Resources",
+    "result": {
+      "aggressive": 6,
+      "confident": 6,
+      "responsible": 7,
+      "indivisual": 6,
+      "horizontal": 4
+    }
+  },
+  {
+    "enterprise": "Western Digital",
+    "result": {
+      "aggressive": 8,
+      "confident": 9,
+      "responsible": 4,
+      "indivisual": 9,
+      "horizontal": 7
+    }
+  },
+  {
+    "enterprise": "Tech Data",
+    "result": {
+      "aggressive": 6,
+      "confident": 5,
+      "responsible": 9,
+      "indivisual": 5,
+      "horizontal": 6
+    }
+  },
+  {
+    "enterprise": "Unum Group",
+    "result": {
+      "aggressive": 6,
+      "confident": 7,
+      "responsible": 3,
+      "indivisual": 5,
+      "horizontal": 6
+    }
+  },
+  {
+    "enterprise": "ON Semiconductor",
+    "result": {
+      "aggressive": 5,
+      "confident": 9,
+      "responsible": 9,
+      "indivisual": 7,
+      "horizontal": 10
+    }
+  },
+  {
+    "enterprise": "CommScope Holding",
+    "result": {
+      "aggressive": 5,
+      "confident": 7,
+      "responsible": 7,
+      "indivisual": 6,
+      "horizontal": 8
+    }
+  },
+  {
+    "enterprise": "NextEra Energy",
+    "result": {
+      "aggressive": 8,
+      "confident": 6,
+      "responsible": 4,
+      "indivisual": 8,
+      "horizontal": 9
+    }
+  },
+  {
+    "enterprise": "Heartland Payment Systems",
+    "result": {
+      "aggressive": 10,
+      "confident": 6,
+      "responsible": 8,
+      "indivisual": 4,
+      "horizontal": 4
+    }
+  },
+  {
+    "enterprise": "Telephone & Data Systems",
+    "result": {
+      "aggressive": 7,
+      "confident": 9,
+      "responsible": 9,
+      "indivisual": 7,
+      "horizontal": 6
+    }
+  },
+  {
+    "enterprise": "Marsh & McLennan",
+    "result": {
+      "aggressive": 8,
+      "confident": 10,
+      "responsible": 3,
+      "indivisual": 9,
+      "horizontal": 9
+    }
+  },
+  {
+    "enterprise": "Andersons",
+    "result": {
+      "aggressive": 8,
+      "confident": 4,
+      "responsible": 5,
+      "indivisual": 5,
+      "horizontal": 8
+    }
+  },
+  {
+    "enterprise": "Jacobs Engineering Group",
+    "result": {
+      "aggressive": 4,
+      "confident": 9,
+      "responsible": 8,
+      "indivisual": 10,
+      "horizontal": 4
+    }
+  },
+  {
+    "enterprise": "MDU Resources Group",
+    "result": {
+      "aggressive": 3,
+      "confident": 6,
+      "responsible": 6,
+      "indivisual": 5,
+      "horizontal": 10
+    }
+  },
+  {
+    "enterprise": "EMC",
+    "result": {
+      "aggressive": 7,
+      "confident": 5,
+      "responsible": 6,
+      "indivisual": 8,
+      "horizontal": 6
+    }
+  },
+  {
+    "enterprise": "Express Scripts Holding",
+    "result": {
+      "aggressive": 9,
+      "confident": 4,
+      "responsible": 9,
+      "indivisual": 4,
+      "horizontal": 9
+    }
+  },
+  {
+    "enterprise": "Synopsys",
+    "result": {
+      "aggressive": 4,
+      "confident": 10,
+      "responsible": 8,
+      "indivisual": 5,
+      "horizontal": 10
+    }
+  },
+  {
+    "enterprise": "Ford Motor",
+    "result": {
+      "aggressive": 9,
+      "confident": 7,
+      "responsible": 9,
+      "indivisual": 5,
+      "horizontal": 10
+    }
+  },
+  {
+    "enterprise": "Textron",
+    "result": {
+      "aggressive": 5,
+      "confident": 10,
+      "responsible": 9,
+      "indivisual": 5,
+      "horizontal": 5
+    }
+  },
+  {
+    "enterprise": "Archer Daniels Midland",
+    "result": {
+      "aggressive": 10,
+      "confident": 5,
+      "responsible": 3,
+      "indivisual": 7,
+      "horizontal": 9
+    }
+  },
+  {
+    "enterprise": "Hillshire Brands",
+    "result": {
+      "aggressive": 3,
+      "confident": 10,
+      "responsible": 7,
+      "indivisual": 6,
+      "horizontal": 9
+    }
+  },
+  {
+    "enterprise": "First Solar",
+    "result": {
+      "aggressive": 3,
+      "confident": 4,
+      "responsible": 10,
+      "indivisual": 5,
+      "horizontal": 9
+    }
+  },
+  {
+    "enterprise": "NetApp",
+    "result": {
+      "aggressive": 6,
+      "confident": 9,
+      "responsible": 10,
+      "indivisual": 9,
+      "horizontal": 4
+    }
+  },
+  {
+    "enterprise": "Jacobs Engineering Group",
+    "result": {
+      "aggressive": 6,
+      "confident": 8,
+      "responsible": 9,
+      "indivisual": 7,
+      "horizontal": 10
+    }
+  },
+  {
+    "enterprise": "Whirlpool",
+    "result": {
+      "aggressive": 9,
+      "confident": 7,
+      "responsible": 6,
+      "indivisual": 3,
+      "horizontal": 9
+    }
+  },
+  {
+    "enterprise": "Anadarko Petroleum",
+    "result": {
+      "aggressive": 5,
+      "confident": 10,
+      "responsible": 6,
+      "indivisual": 10,
+      "horizontal": 7
+    }
+  },
+  {
+    "enterprise": "Starbucks",
+    "result": {
+      "aggressive": 8,
+      "confident": 3,
+      "responsible": 6,
+      "indivisual": 6,
+      "horizontal": 5
+    }
+  },
+  {
+    "enterprise": "Rush Enterprises",
+    "result": {
+      "aggressive": 7,
+      "confident": 8,
+      "responsible": 5,
+      "indivisual": 4,
+      "horizontal": 9
+    }
+  },
+  {
+    "enterprise": "Carlisle",
+    "result": {
+      "aggressive": 5,
+      "confident": 9,
+      "responsible": 5,
+      "indivisual": 5,
+      "horizontal": 10
+    }
+  },
+  {
+    "enterprise": "Community Health Systems",
+    "result": {
+      "aggressive": 6,
+      "confident": 9,
+      "responsible": 5,
+      "indivisual": 7,
+      "horizontal": 9
+    }
+  },
+  {
+    "enterprise": "Brinker International",
+    "result": {
+      "aggressive": 8,
+      "confident": 7,
+      "responsible": 9,
+      "indivisual": 3,
+      "horizontal": 9
+    }
+  },
+  {
+    "enterprise": "Xcel Energy",
+    "result": {
+      "aggressive": 7,
+      "confident": 10,
+      "responsible": 6,
+      "indivisual": 4,
+      "horizontal": 8
+    }
+  },
+  {
+    "enterprise": "Joy Global",
+    "result": {
+      "aggressive": 3,
+      "confident": 7,
+      "responsible": 6,
+      "indivisual": 7,
+      "horizontal": 5
+    }
+  },
+  {
+    "enterprise": "Colgate-Palmolive",
+    "result": {
+      "aggressive": 8,
+      "confident": 6,
+      "responsible": 8,
+      "indivisual": 8,
+      "horizontal": 6
+    }
+  },
+  {
+    "enterprise": "Alcoa",
+    "result": {
+      "aggressive": 4,
+      "confident": 8,
+      "responsible": 5,
+      "indivisual": 5,
+      "horizontal": 7
+    }
+  },
+  {
+    "enterprise": "Humana",
+    "result": {
+      "aggressive": 6,
+      "confident": 4,
+      "responsible": 8,
+      "indivisual": 7,
+      "horizontal": 8
+    }
+  },
+  {
+    "enterprise": "Synnex",
+    "result": {
+      "aggressive": 9,
+      "confident": 5,
+      "responsible": 3,
+      "indivisual": 7,
+      "horizontal": 5
+    }
+  },
+  {
+    "enterprise": "FM Global",
+    "result": {
+      "aggressive": 4,
+      "confident": 5,
+      "responsible": 8,
+      "indivisual": 8,
+      "horizontal": 5
+    }
+  },
+  {
+    "enterprise": "Covance",
+    "result": {
+      "aggressive": 9,
+      "confident": 4,
+      "responsible": 4,
+      "indivisual": 3,
+      "horizontal": 4
+    }
+  },
+  {
+    "enterprise": "CF Industries Holdings",
+    "result": {
+      "aggressive": 8,
+      "confident": 6,
+      "responsible": 6,
+      "indivisual": 3,
+      "horizontal": 9
+    }
+  },
+  {
+    "enterprise": "Nasdaq OMX Group",
+    "result": {
+      "aggressive": 4,
+      "confident": 8,
+      "responsible": 8,
+      "indivisual": 9,
+      "horizontal": 4
+    }
+  },
+  {
+    "enterprise": "Skyworks Solutions",
+    "result": {
+      "aggressive": 7,
+      "confident": 8,
+      "responsible": 6,
+      "indivisual": 8,
+      "horizontal": 6
+    }
+  },
+  {
+    "enterprise": "RPM International",
+    "result": {
+      "aggressive": 9,
+      "confident": 9,
+      "responsible": 4,
+      "indivisual": 5,
+      "horizontal": 8
+    }
+  },
+  {
+    "enterprise": "Cognizant Technology Solutions",
+    "result": {
+      "aggressive": 4,
+      "confident": 4,
+      "responsible": 9,
+      "indivisual": 10,
+      "horizontal": 7
+    }
+  },
+  {
+    "enterprise": "Ryerson Holding",
+    "result": {
+      "aggressive": 9,
+      "confident": 4,
+      "responsible": 5,
+      "indivisual": 9,
+      "horizontal": 4
+    }
+  },
+  {
+    "enterprise": "Hub Group",
+    "result": {
+      "aggressive": 6,
+      "confident": 5,
+      "responsible": 9,
+      "indivisual": 5,
+      "horizontal": 4
+    }
+  },
+  {
+    "enterprise": "Jabil Circuit",
+    "result": {
+      "aggressive": 3,
+      "confident": 4,
+      "responsible": 3,
+      "indivisual": 4,
+      "horizontal": 7
+    }
+  },
+  {
+    "enterprise": "Sealed Air",
+    "result": {
+      "aggressive": 5,
+      "confident": 6,
+      "responsible": 5,
+      "indivisual": 9,
+      "horizontal": 3
+    }
+  },
+  {
+    "enterprise": "Post Holdings",
+    "result": {
+      "aggressive": 6,
+      "confident": 6,
+      "responsible": 6,
+      "indivisual": 7,
+      "horizontal": 5
+    }
+  },
+  {
+    "enterprise": "EQT",
+    "result": {
+      "aggressive": 5,
+      "confident": 3,
+      "responsible": 4,
+      "indivisual": 9,
+      "horizontal": 6
+    }
+  },
+  {
+    "enterprise": "Roper Technologies",
+    "result": {
+      "aggressive": 6,
+      "confident": 8,
+      "responsible": 5,
+      "indivisual": 7,
+      "horizontal": 10
+    }
+  },
+  {
+    "enterprise": "Sabre",
+    "result": {
+      "aggressive": 6,
+      "confident": 4,
+      "responsible": 5,
+      "indivisual": 4,
+      "horizontal": 6
+    }
+  },
+  {
+    "enterprise": "Hanover Insurance Group",
+    "result": {
+      "aggressive": 6,
+      "confident": 9,
+      "responsible": 4,
+      "indivisual": 7,
+      "horizontal": 3
+    }
+  },
+  {
+    "enterprise": "HollyFrontier",
+    "result": {
+      "aggressive": 7,
+      "confident": 3,
+      "responsible": 6,
+      "indivisual": 5,
+      "horizontal": 5
+    }
+  },
+  {
+    "enterprise": "Citrix Systems",
+    "result": {
+      "aggressive": 5,
+      "confident": 7,
+      "responsible": 4,
+      "indivisual": 5,
+      "horizontal": 5
+    }
+  },
+  {
+    "enterprise": "Groupon",
+    "result": {
+      "aggressive": 8,
+      "confident": 3,
+      "responsible": 6,
+      "indivisual": 8,
+      "horizontal": 6
+    }
+  },
+  {
+    "enterprise": "INTL FCStone",
+    "result": {
+      "aggressive": 5,
+      "confident": 4,
+      "responsible": 4,
+      "indivisual": 5,
+      "horizontal": 3
+    }
+  },
+  {
+    "enterprise": "Benchmark Electronics",
+    "result": {
+      "aggressive": 4,
+      "confident": 8,
+      "responsible": 5,
+      "indivisual": 8,
+      "horizontal": 4
+    }
+  },
+  {
+    "enterprise": "Enable Midstream Partners",
+    "result": {
+      "aggressive": 10,
+      "confident": 5,
+      "responsible": 8,
+      "indivisual": 3,
+      "horizontal": 5
+    }
+  },
+  {
+    "enterprise": "Rexnord",
+    "result": {
+      "aggressive": 9,
+      "confident": 8,
+      "responsible": 10,
+      "indivisual": 6,
+      "horizontal": 7
+    }
+  },
+  {
+    "enterprise": "Jones Lang LaSalle",
+    "result": {
+      "aggressive": 8,
+      "confident": 5,
+      "responsible": 9,
+      "indivisual": 4,
+      "horizontal": 6
+    }
+  },
+  {
+    "enterprise": "Par Pacific Holdings",
+    "result": {
+      "aggressive": 7,
+      "confident": 6,
+      "responsible": 7,
+      "indivisual": 3,
+      "horizontal": 7
+    }
+  },
+  {
+    "enterprise": "Foot Locker",
+    "result": {
+      "aggressive": 9,
+      "confident": 7,
+      "responsible": 3,
+      "indivisual": 4,
+      "horizontal": 8
+    }
+  },
+  {
+    "enterprise": "CenturyLink",
+    "result": {
+      "aggressive": 3,
+      "confident": 4,
+      "responsible": 7,
+      "indivisual": 9,
+      "horizontal": 8
+    }
+  },
+  {
+    "enterprise": "Education Management",
+    "result": {
+      "aggressive": 6,
+      "confident": 6,
+      "responsible": 8,
+      "indivisual": 10,
+      "horizontal": 5
+    }
+  },
+  {
+    "enterprise": "Hawaiian Holdings",
+    "result": {
+      "aggressive": 7,
+      "confident": 7,
+      "responsible": 8,
+      "indivisual": 8,
+      "horizontal": 5
+    }
+  },
+  {
+    "enterprise": "Kindred Healthcare",
+    "result": {
+      "aggressive": 5,
+      "confident": 4,
+      "responsible": 8,
+      "indivisual": 5,
+      "horizontal": 6
+    }
+  },
+  {
+    "enterprise": "Nasdaq OMX Group",
+    "result": {
+      "aggressive": 6,
+      "confident": 8,
+      "responsible": 4,
+      "indivisual": 5,
+      "horizontal": 4
+    }
+  },
+  {
+    "enterprise": "Keurig Green Mountain",
+    "result": {
+      "aggressive": 9,
+      "confident": 8,
+      "responsible": 7,
+      "indivisual": 7,
+      "horizontal": 9
+    }
+  },
+  {
+    "enterprise": "NVR",
+    "result": {
+      "aggressive": 8,
+      "confident": 6,
+      "responsible": 9,
+      "indivisual": 6,
+      "horizontal": 8
+    }
+  },
+  {
+    "enterprise": "Fidelity National Information Services",
+    "result": {
+      "aggressive": 6,
+      "confident": 4,
+      "responsible": 6,
+      "indivisual": 7,
+      "horizontal": 6
+    }
+  },
+  {
+    "enterprise": "Continental Resources",
+    "result": {
+      "aggressive": 4,
+      "confident": 6,
+      "responsible": 5,
+      "indivisual": 7,
+      "horizontal": 6
+    }
+  },
+  {
+    "enterprise": "GameStop",
+    "result": {
+      "aggressive": 4,
+      "confident": 5,
+      "responsible": 5,
+      "indivisual": 4,
+      "horizontal": 4
+    }
+  },
+  {
+    "enterprise": "IMS Health Holdings",
+    "result": {
+      "aggressive": 5,
+      "confident": 4,
+      "responsible": 6,
+      "indivisual": 9,
+      "horizontal": 4
+    }
+  },
+  {
+    "enterprise": "A. Schulman",
+    "result": {
+      "aggressive": 9,
+      "confident": 4,
+      "responsible": 9,
+      "indivisual": 8,
+      "horizontal": 4
+    }
+  },
+  {
+    "enterprise": "Adobe Systems",
+    "result": {
+      "aggressive": 9,
+      "confident": 6,
+      "responsible": 7,
+      "indivisual": 5,
+      "horizontal": 3
+    }
+  },
+  {
+    "enterprise": "CF Industries Holdings",
+    "result": {
+      "aggressive": 5,
+      "confident": 5,
+      "responsible": 8,
+      "indivisual": 5,
+      "horizontal": 8
+    }
+  },
+  {
+    "enterprise": "BB&T Corp.",
+    "result": {
+      "aggressive": 6,
+      "confident": 4,
+      "responsible": 10,
+      "indivisual": 6,
+      "horizontal": 7
+    }
+  },
+  {
+    "enterprise": "Meritage Homes",
+    "result": {
+      "aggressive": 8,
+      "confident": 8,
+      "responsible": 6,
+      "indivisual": 4,
+      "horizontal": 5
+    }
+  },
+  {
+    "enterprise": "Valmont Industries",
+    "result": {
+      "aggressive": 7,
+      "confident": 5,
+      "responsible": 7,
+      "indivisual": 9,
+      "horizontal": 4
+    }
+  },
+  {
+    "enterprise": "Lear",
+    "result": {
+      "aggressive": 4,
+      "confident": 3,
+      "responsible": 8,
+      "indivisual": 8,
+      "horizontal": 4
+    }
+  },
+  {
+    "enterprise": "HCP",
+    "result": {
+      "aggressive": 7,
+      "confident": 3,
+      "responsible": 3,
+      "indivisual": 5,
+      "horizontal": 9
+    }
+  },
+  {
+    "enterprise": "Kennametal",
+    "result": {
+      "aggressive": 7,
+      "confident": 6,
+      "responsible": 10,
+      "indivisual": 6,
+      "horizontal": 9
+    }
+  },
+  {
+    "enterprise": "Anixter International",
+    "result": {
+      "aggressive": 6,
+      "confident": 7,
+      "responsible": 8,
+      "indivisual": 5,
+      "horizontal": 10
+    }
+  },
+  {
+    "enterprise": "Weis Markets",
+    "result": {
+      "aggressive": 4,
+      "confident": 7,
+      "responsible": 8,
+      "indivisual": 4,
+      "horizontal": 7
+    }
+  },
+  {
+    "enterprise": "Vulcan Materials",
+    "result": {
+      "aggressive": 7,
+      "confident": 8,
+      "responsible": 8,
+      "indivisual": 7,
+      "horizontal": 7
+    }
+  },
+  {
+    "enterprise": "Insperity",
+    "result": {
+      "aggressive": 9,
+      "confident": 4,
+      "responsible": 7,
+      "indivisual": 6,
+      "horizontal": 5
+    }
+  }
+]
