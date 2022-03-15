@@ -1,19 +1,19 @@
 <template>
-  <search-var-vue />
-  <result-vue :user="user" :company="company" />
+  <search-bar-vue />
+  <my-result-vue :user="user" :company="company" />
 </template>
 
 <script>
 import { computed } from "vue";
 import userData from "./datas/user.json";
 import enterpriseData from "./datas/enterprise.json";
-import SearchVarVue from "./components/SearchVar.vue";
-import ResultVue from "./components/Result.vue";
+import SearchBarVue from "./components/SearchBar.vue";
+import MyResultVue from "./components/MyResult.vue";
 
 export default {
   components: {
-    SearchVarVue,
-    ResultVue,
+    SearchBarVue,
+    MyResultVue,
   },
   data() {
     return {

@@ -21,7 +21,7 @@
         <p id="row" v-for="(score, i) in user" :key="i"></p>
       </div>
       <p id="col"></p>
-      <BarChart :user="user" :company="company" />
+      <ChartBar :user="user" :company="company" />
     </div>
     <div>
       <div class="between" v-for="(score, i) in user" :key="i">
@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import BarChart from "./BarChart.vue";
+import ChartBar from "./ChartBar.vue";
 
 const leftResult = ["적극성", "자신감", "책임감", "개인성향", "수평사고"];
 const rightResult = ["수동성", "신중함", "무심함", "조직성향", "위계사고"];
@@ -64,7 +64,7 @@ export default {
       required: true,
     },
   },
-  components: { BarChart },
+  components: { ChartBar },
   methods: {
     selectScoreColor(num) {
       let color = "color:#578339";
