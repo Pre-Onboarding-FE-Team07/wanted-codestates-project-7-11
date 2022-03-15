@@ -2,9 +2,9 @@
   <BarChart
     v-bind="barChartProps"
     :style="{
-      width: '15rem',
-      height: '15rem',
-      alignItems: 'center',
+      position: 'absolute',
+      top: 0,
+      marginLeft: '-36px',
     }"
   />
 </template>
@@ -37,6 +37,7 @@ export default defineComponent({
     const { userResult, enterpriseResult } = toRefs(props);
     const options = ref({
       barThickness: 10,
+
       responsive: true,
       indexAxis: "y",
       scales: {

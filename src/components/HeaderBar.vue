@@ -62,14 +62,14 @@ img {
 }
 
 .reload {
-  width: 7rem;
+  /* width: 7rem; */
   height: 22px;
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
   text-align: right;
   font-style: normal;
-  color: #6e3cf9;
+  color: $color-purple;
   cursor: pointer;
   border: none;
   background: none;

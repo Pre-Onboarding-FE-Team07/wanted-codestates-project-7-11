@@ -1,7 +1,7 @@
 <template>
   <section>
     <RadarChart :chart-data="chartData" :options="options" />
-    <img src="radar_cat.png" />
+    <img src="../assets/radar_cat.png" />
   </section>
 </template>
 
