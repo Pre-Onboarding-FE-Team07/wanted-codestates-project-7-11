@@ -18,11 +18,11 @@
 export default {
   components: {},
 
-  emits: ["tabClick"],
+  emits: ["clickTab"],
   methods: {
     onEmit(id) {
       this.selectedTab = id;
-      this.$emit("tabClick", this.selectedTab);
+      this.$emit("clickTab", this.selectedTab);
     },
   },
   mounted() {},
@@ -92,9 +92,12 @@ img {
   width: 14px;
 }
 
-button.active {
-  background-color: white;
-  color: #121212;
+button {
+  cursor: pointer;
+  .active {
+    background-color: white;
+    color: #121212;
+  }
 }
 
 .tab-title {

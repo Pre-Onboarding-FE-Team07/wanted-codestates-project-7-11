@@ -1,13 +1,13 @@
 <template>
-  <div class="header">
+  <header>
     <div class="title-wrap">
       <div class="arrow-wrap">
         <img src="../assets/back-button.png" />
       </div>
       <h1 class="title">진단결과</h1>
     </div>
-    <p class="reload" @click="reload">다시 진단하기</p>
-  </div>
+    <button class="reload" @click="reload">다시 진단하기</button>
+  </header>
 </template>
 
 <script>
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header {
+header {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -63,6 +63,8 @@ img {
 }
 
 .reload {
+  width: 120px;
+  height: 22px;
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
@@ -70,5 +72,7 @@ img {
   font-style: normal;
   color: #6e3cf9;
   cursor: pointer;
+  border: none;
+  background: none;
 }
 </style>
