@@ -22,12 +22,19 @@
       @keydown.down="down"
     />
     <div class="suggestions" v-if="(focused && suggestions.length) || !matched">
-      <ul v-if="matched" ref="suggestions">
+      <ul
+        v-if="matched"
+        ref="suggestions"
+        @mouseover="mouseover"
+        :class="{ keyboardMode }"
+      >
         <li
           v-for="(suggestion, index) in suggestions"
           :key="index"
+          @mousemove="keyboardMode = false"
           @mousedown="select"
           :class="{ selected: selectedIndex === index }"
+          :data-index="index"
         >
           {{ suggestion }}
         </li>
@@ -75,7 +82,7 @@ export default {
       suggestions: [],
       focused: false,
       matched: true,
-      controlMode: "mouse",
+      keyboardMode: false,
       selectedIndex: -1,
     };
   },
@@ -108,16 +115,21 @@ export default {
     },
     up(event) {
       event.preventDefault();
+      this.keyboardMode = true;
       if (this.selectedIndex === 0) return;
       this.selectedIndex -= 1;
       scrollIntoView.call(this);
     },
     down(event) {
       event.preventDefault();
-      this.controlMode = "keyboard";
+      this.keyboardMode = true;
       if (this.selectedIndex >= this.suggestions.length - 1) return;
       this.selectedIndex += 1;
       scrollIntoView.call(this);
+    },
+    mouseover({ target }) {
+      if (this.keyboardMode) return;
+      this.selectedIndex = +target.dataset.index;
     },
     reset() {
       this.$emit("reset");
@@ -191,7 +203,6 @@ section {
       padding: 8px;
       cursor: pointer;
 
-      &:hover,
       &.selected {
         background-color: rgb(0 0 0 / 5%);
       }
