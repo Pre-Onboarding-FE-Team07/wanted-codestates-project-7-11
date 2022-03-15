@@ -1,24 +1,33 @@
 <template>
   <section>
-    <RadarChart :chart-data="testData" :options="options" />
+    <RadarChart :chart-data="chartData" :options="options" />
     <img src="radar_cat.png" />
   </section>
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { computed, defineComponent, reactive } from "vue";
 import { RadarChart } from "vue-chart-3";
 import { Chart, registerables } from "chart.js";
 
 Chart.register(...registerables);
 
 export default defineComponent({
-  name: "PentagonView",
+  name: "ChartPentagon",
   components: { RadarChart },
-  setup() {
+  props: {
+    userResult: {
+      type: Object,
+      default: null,
+    },
+    enterprise: {
+      type: Object,
+      default: null,
+    },
+  },
+  setup(props) {
     const options = {
       reposive: true,
-
       plugins: {
         legend: { display: false },
         tooltip: { enabled: false },
@@ -50,7 +59,7 @@ export default defineComponent({
         },
       },
     };
-    const testData = {
+    const chartData = reactive({
       labels: [
         ["적극적인", "Aggressive"],
         ["자신있는", "Confident"],
@@ -60,7 +69,7 @@ export default defineComponent({
       ],
       datasets: [
         {
-          data: [8, 10, 10, 3, 6],
+          data: computed(() => Object.values(props.userResult)),
           backgroundColor: "rgba(110, 60, 249, 0.32)",
           borderColor: "rgba(110, 60, 249, 1)",
           borderWidth: 2,
@@ -69,7 +78,9 @@ export default defineComponent({
           order: 1,
         },
         {
-          data: null,
+          data: computed(() =>
+            props.enterprise ? Object.values(props.enterprise.result) : null
+          ),
           backgroundColor: "rgba(255, 193, 74, 0.32)",
           borderColor: "rgba(255, 211, 53, 1)",
           borderWidth: 2,
@@ -94,8 +105,8 @@ export default defineComponent({
           order: 2,
         },
       ],
-    };
-    return { options, testData };
+    });
+    return { options, chartData };
   },
 });
 </script>
@@ -103,14 +114,14 @@ export default defineComponent({
 <style lang="scss" scoped>
 section {
   position: relative;
+  padding: 0 15px;
+  box-sizing: border-box;
   img {
     width: 54px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -20%);
+    transform: translate(-50%, -15%);
   }
-  padding: 0 15px;
-  box-sizing: border-box;
 }
 </style>
