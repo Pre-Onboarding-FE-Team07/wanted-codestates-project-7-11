@@ -89,5 +89,5 @@ const getMatchRate = (a, b) => {
 };
 </script>
 <style lang="scss" scoped>
-@import "~/scss/chartDoughnut";
+@import "../scss/chartDoughnut";
 </style>
