@@ -1,6 +1,6 @@
 <template>
   <search-bar-vue />
-  <my-result-vue :user="user" :company="company" />
+  <chart-bar-view-vue :user="user" :company="company" />
 </template>
 
 <script>
@@ -8,12 +8,12 @@ import { computed } from "vue";
 import userData from "./datas/user.json";
 import enterpriseData from "./datas/enterprise.json";
 import SearchBarVue from "./components/SearchBar.vue";
-import MyResultVue from "./components/MyResult.vue";
+import ChartBarViewVue from "./components/ChartBarView.vue";
 
 export default {
   components: {
     SearchBarVue,
-    MyResultVue,
+    ChartBarViewVue,
   },
   data() {
     return {
