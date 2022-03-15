@@ -7,7 +7,7 @@
       </span>
       <span class="row right-item" v-if="query"
         >{{ query }}
-        <ResetIcon />
+        <ResetIcon @click="reset" />
       </span>
     </div>
     <input
@@ -44,7 +44,7 @@ function getSuggestions(keyword) {
 
 export default {
   name: "SearchBar",
-  emits: ["search"],
+  emits: ["search", "reset"],
   components: { RightChevronIcon, ResetIcon },
   data() {
     return {
@@ -76,6 +76,13 @@ export default {
         this.matched = false;
       }
     },
+    reset() {
+      this.$emit("reset");
+      this.query = "";
+      this.text = "";
+      this.matched = true;
+      this.suggestions = [];
+    },
   },
 };
 </script>
@@ -94,6 +101,7 @@ section {
     align-items: center;
     color: #727272;
     gap: 8px;
+    white-space: nowrap;
 
     .left-item {
       font-size: 16px;
@@ -102,6 +110,7 @@ section {
 
     .right-item {
       font-size: 14px;
+      text-overflow: ellipsis;
 
       svg {
         cursor: pointer;
