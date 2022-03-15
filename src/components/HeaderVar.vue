@@ -27,8 +27,8 @@ header {
   align-items: center;
   justify-content: space-between;
   position: absolute;
-  width: 360px;
-  height: 72px;
+  width: 22rem;
+  height: 4rem;
   padding: 16px;
   top: 0;
   background: #ffffff;
@@ -39,13 +39,12 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 220px;
-  height: 34px;
+  width: 13rem;
+  height: 2rem;
 }
 
 .title {
-  width: 100px;
-  height: 34px;
+  width: 13rem;
   font-weight: 700;
   font-size: 24px;
   line-height: 140%;
@@ -58,13 +57,13 @@ header {
 }
 
 img {
-  width: 28px;
-  height: 28px;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .reload {
-  width: 120px;
-  height: 22px;
+  width: 7rem;
+  height: 1rem;
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;

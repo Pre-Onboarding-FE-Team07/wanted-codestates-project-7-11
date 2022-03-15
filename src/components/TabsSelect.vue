@@ -55,8 +55,7 @@ section {
   flex-direction: column;
   align-items: center;
   padding: 20px 16px;
-  width: 360px;
-  height: 84px;
+  width: 22rem;
   top: 381px;
   background: #ffffff;
 }
@@ -65,10 +64,7 @@ section {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  width: 328px;
-  height: 45px;
-  left: 16px;
-  top: 20px;
+  width: 20rem;
   background: #f8f8f8;
   border: 1px solid #f2f2f2;
   box-sizing: border-box;
@@ -76,33 +72,29 @@ section {
 
 button {
   display: flex;
-  width: 109px;
-  height: 45px;
+  width: 6rem;
   border-radius: 4px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 14px 16px 14px 16px;
+  padding: 14px 16px;
   background: #f2f2f2;
   border: none;
   flex-grow: 1;
+  cursor: pointer;
+
+  &.active {
+    background-color: white;
+    color: #121212;
+  }
 }
 
 img {
   width: 14px;
 }
 
-button {
-  cursor: pointer;
-  .active {
-    background-color: white;
-    color: #121212;
-  }
-}
-
 .tab-title {
-  width: 30px;
-  height: 17px;
+  width: 2rem;
   font-style: normal;
   font-weight: bold;
   font-size: 12px;
