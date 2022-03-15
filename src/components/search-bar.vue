@@ -1,8 +1,14 @@
 <template>
   <section>
     <div class="row">
-      <span>검색 결과</span>
-      <span>{{ query }}</span>
+      <span class="row left-item"
+        >검색 결과
+        <RightChevronIcon />
+      </span>
+      <span class="row right-item" v-if="query"
+        >{{ query }}
+        <ResetIcon />
+      </span>
     </div>
     <input
       type="text"
@@ -26,6 +32,8 @@
 
 <script>
 import enterprises from "../data/enterprise.json";
+import RightChevronIcon from "../assets/right-chevron.svg";
+import ResetIcon from "../assets/reset.svg";
 
 function getSuggestions(keyword) {
   const query = new RegExp(keyword.split("").join(".*?"), "gi");
@@ -37,6 +45,7 @@ function getSuggestions(keyword) {
 export default {
   name: "SearchBar",
   emits: ["search"],
+  components: { RightChevronIcon, ResetIcon },
   data() {
     return {
       text: "",
@@ -84,14 +93,19 @@ section {
     justify-content: space-between;
     align-items: center;
     color: #727272;
+    gap: 8px;
 
-    span:first-child {
+    .left-item {
       font-size: 16px;
       font-weight: bold;
     }
 
-    span:last-child {
+    .right-item {
       font-size: 14px;
+
+      svg {
+        cursor: pointer;
+      }
     }
   }
 
