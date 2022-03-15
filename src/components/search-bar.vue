@@ -18,13 +18,16 @@
       @focus="focus"
       @blur="blur"
       @keypress.enter="submit"
+      @keydown.up="up"
+      @keydown.down="down"
     />
     <div class="suggestions" v-if="(focused && suggestions.length) || !matched">
-      <ul v-if="matched">
+      <ul v-if="matched" ref="suggestions">
         <li
           v-for="(suggestion, index) in suggestions"
           :key="index"
           @mousedown="select"
+          :class="{ selected: selectedIndex === index }"
         >
           {{ suggestion }}
         </li>
@@ -51,6 +54,14 @@ function selectSuggestion(suggestion) {
   this.text = suggestion;
   this.$emit("search", suggestion);
   this.suggestions = [];
+  this.selectedSuggestionRef = null;
+}
+
+function scrollIntoView() {
+  this.$refs.suggestions.children[this.selectedIndex].scrollIntoView({
+    block: "center",
+    inline: "nearest",
+  });
 }
 
 export default {
@@ -64,6 +75,8 @@ export default {
       suggestions: [],
       focused: false,
       matched: true,
+      controlMode: "mouse",
+      selectedIndex: -1,
     };
   },
   methods: {
@@ -78,7 +91,12 @@ export default {
       this.focused = false;
     },
     submit() {
-      const suggestion = this.suggestions[0];
+      const suggestion =
+        this.selectedIndex >= 0
+          ? this.suggestions[this.selectedIndex]
+          : this.suggestions[0];
+      this.selectedIndex = -1;
+
       if (suggestion) {
         selectSuggestion.call(this, suggestion);
       } else {
@@ -87,6 +105,19 @@ export default {
     },
     select({ target: { textContent: suggestion } }) {
       selectSuggestion.call(this, suggestion);
+    },
+    up(event) {
+      event.preventDefault();
+      if (this.selectedIndex === 0) return;
+      this.selectedIndex -= 1;
+      scrollIntoView.call(this);
+    },
+    down(event) {
+      event.preventDefault();
+      this.controlMode = "keyboard";
+      if (this.selectedIndex >= this.suggestions.length - 1) return;
+      this.selectedIndex += 1;
+      scrollIntoView.call(this);
     },
     reset() {
       this.$emit("reset");
@@ -160,7 +191,8 @@ section {
       padding: 8px;
       cursor: pointer;
 
-      &:hover {
+      &:hover,
+      &.selected {
         background-color: rgb(0 0 0 / 5%);
       }
     }
