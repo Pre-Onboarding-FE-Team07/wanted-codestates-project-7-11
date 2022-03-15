@@ -46,12 +46,13 @@
 </template>
 
 <script>
+import { fuzzyMatcher } from "../utils/search";
 import enterprises from "../data/enterprise.json";
 import RightChevronIcon from "../assets/right-chevron.svg";
 import ResetIcon from "../assets/reset.svg";
 
 function getSuggestions(keyword) {
-  const query = new RegExp(keyword.split("").join(".*?"), "gi");
+  const query = fuzzyMatcher(keyword);
   return enterprises
     .map(({ enterprise }) => enterprise)
     .filter((enterprise) => query.test(enterprise));
