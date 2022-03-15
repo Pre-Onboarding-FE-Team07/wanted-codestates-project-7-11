@@ -4,7 +4,7 @@
     <h1>나의 결과는?</h1>
   </section>
   <section class="chart">
-    <main>
+    <div>
       <div class="between" v-for="(score, i) in user" :key="i">
         <section class="num">
           <article :style="selectScoreColor(score)">
@@ -15,15 +15,15 @@
           <article :style="selectStandardColor(score)">{{ left[i] }}</article>
         </section>
       </div>
-    </main>
-    <main class="chartBar">
+    </div>
+    <div class="chartBar">
       <div class="line">
         <p id="row" v-for="(score, i) in user" :key="i"></p>
       </div>
       <p id="col"></p>
       <BarChart :user="user" :company="company" />
-    </main>
-    <main>
+    </div>
+    <div>
       <div class="between" v-for="(score, i) in user" :key="i">
         <section class="num">
           <article :style="selectStandardColor(10 - score)">
@@ -36,7 +36,7 @@
           </article>
         </section>
       </div>
-    </main>
+    </div>
   </section>
 </template>
 
@@ -99,23 +99,23 @@ export default {
 }
 .chart {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  main {
-    .between {
-      display: flex;
-      .num {
-        article {
-          padding: 1.1rem;
-          font-weight: bold;
-          span {
-            font-size: 1.2rem;
-          }
+  .between {
+    display: flex;
+    .num {
+      article {
+        padding: 1.1rem;
+        font-weight: bold;
+        span {
+          font-size: 1.2rem;
         }
       }
     }
   }
 }
+
 .chartBar {
   width: 20rem;
   padding: 0;
