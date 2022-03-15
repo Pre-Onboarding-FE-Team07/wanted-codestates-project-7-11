@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { computed, defineComponent, reactive } from "vue";
+import { defineComponent, reactive } from "vue";
 import { RadarChart } from "vue-chart-3";
 import { Chart, registerables } from "chart.js";
 
@@ -17,11 +17,11 @@ export default defineComponent({
   components: { RadarChart },
   props: {
     userResult: {
-      type: Object,
-      default: null,
+      type: Array,
+      required: true,
     },
-    enterprise: {
-      type: Object,
+    enterpriseResult: {
+      type: Array,
       default: null,
     },
   },
@@ -69,7 +69,7 @@ export default defineComponent({
       ],
       datasets: [
         {
-          data: computed(() => Object.values(props.userResult)),
+          data: props.userResult,
           backgroundColor: "rgba(110, 60, 249, 0.32)",
           borderColor: "rgba(110, 60, 249, 1)",
           borderWidth: 2,
@@ -78,9 +78,7 @@ export default defineComponent({
           order: 1,
         },
         {
-          data: computed(() =>
-            props.enterprise ? Object.values(props.enterprise.result) : null
-          ),
+          data: props.enterpriseResult || null,
           backgroundColor: "rgba(255, 193, 74, 0.32)",
           borderColor: "rgba(255, 211, 53, 1)",
           borderWidth: 2,

@@ -5,7 +5,7 @@
   </section>
   <section class="chart">
     <div>
-      <div class="between" v-for="(score, i) in user" :key="i">
+      <div class="between" v-for="(score, i) in userResult" :key="i">
         <section class="num">
           <article :style="selectScoreColor(score)">
             <span>{{ score }} </span> / 10
@@ -18,13 +18,16 @@
     </div>
     <div class="chartBar">
       <div class="line">
-        <p id="row" v-for="(score, i) in user" :key="i"></p>
+        <p id="row" v-for="(score, i) in userResult" :key="i"></p>
       </div>
       <p id="col"></p>
-      <ChartBar :user="user" :company="company" />
+      <ChartBar
+        :user-result="userResult"
+        :enterprise-result="enterpriseResult"
+      />
     </div>
     <div>
-      <div class="between" v-for="(score, i) in user" :key="i">
+      <div class="between" v-for="(score, i) in userResult" :key="i">
         <section class="num">
           <article :style="selectStandardColor(10 - score)">
             {{ right[i] }}
@@ -55,13 +58,13 @@ export default {
     };
   },
   props: {
-    user: {
-      type: Number,
+    userResult: {
+      type: Array,
       required: true,
     },
-    company: {
-      type: Number,
-      required: true,
+    enterpriseResult: {
+      type: Array,
+      default: null,
     },
   },
   components: { ChartBar },

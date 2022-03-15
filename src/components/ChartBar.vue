@@ -22,19 +22,19 @@ Chart.register(...registerables);
 
 export default defineComponent({
   props: {
-    user: {
-      type: Number,
+    userResult: {
+      type: Array,
       required: true,
     },
-    company: {
-      type: Number,
-      required: true,
+    enterpriseResult: {
+      type: Array,
+      default: null,
     },
   },
   chartData: "BarProcess",
   components: { BarChart },
   setup(props) {
-    const { user, company } = toRefs(props);
+    const { userResult, enterpriseResult } = toRefs(props);
     const options = ref({
       barThickness: 10,
       responsive: true,
@@ -57,11 +57,11 @@ export default defineComponent({
       labels: ["", "", "", "", ""],
       datasets: [
         {
-          data: changeData(user.value),
+          data: changeData(userResult.value),
           backgroundColor: "#6E3CF9",
         },
         {
-          data: changeData(company.value),
+          data: changeData(enterpriseResult.value),
           backgroundColor: "#FFD966",
         },
       ],

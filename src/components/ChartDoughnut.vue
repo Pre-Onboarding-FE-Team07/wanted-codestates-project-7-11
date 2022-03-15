@@ -32,7 +32,7 @@ export default defineComponent({
   props: {
     userResult: {
       type: Array,
-      default: null,
+      required: true,
     },
     enterpriseResult: {
       type: Array,
