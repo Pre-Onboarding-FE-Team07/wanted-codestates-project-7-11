@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, watch, ref, reactive, computed } from "vue";
 import { DoughnutChart } from "vue-chart-3";
 import { Chart, registerables } from "chart.js";
 
@@ -42,40 +42,45 @@ export default defineComponent({
   components: { DoughnutChart },
   data() {
     return {
-      chartData: {},
-      matchRate: null,
       chartOptions: {
-        options: {},
+        type: Object,
+        default: {},
       },
     };
   },
-  watch: {
-    enterprise() {
-      this.createChart();
-    },
-  },
-  methods: {
-    createChart() {
-      if (!this.enterprise) {
-        return false;
+  setup(props) {
+    let matchRate = ref(0);
+    let chartData = reactive({
+      labels: ["매칭률(%)"],
+      datasets: [
+        {
+          data: computed(() => {
+            const rate = matchRate.value;
+            return [rate, 100 - rate];
+          }),
+          backgroundColor: ["#6C87F580", "#F7F7F7"],
+        },
+      ],
+    });
+
+    watch(
+      () => props.enterprise,
+      () => {
+        const { userResult, enterprise } = props;
+        matchRate.value = createChart(userResult, enterprise);
       }
-      const matchRate = Math.round(
-        getMatchRate(this.userResult, this.enterprise.result)
-      );
-      const chartData = {
-        labels: ["매칭률(%)"],
-        datasets: [
-          {
-            data: [matchRate, 100 - matchRate],
-            backgroundColor: ["#6C87F580", "#F7F7F7"],
-          },
-        ],
-      };
-      this.chartData = chartData;
-      this.matchRate = matchRate;
-    },
+    );
+
+    return { chartData, matchRate };
   },
 });
+
+const createChart = (userResult, enterprise) => {
+  if (!enterprise) {
+    return null;
+  }
+  return Math.round(getMatchRate(userResult, enterprise.result));
+};
 
 const getMatchRate = (a, b) => {
   let rates = 0;
