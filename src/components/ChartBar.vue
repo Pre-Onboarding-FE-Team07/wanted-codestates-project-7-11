@@ -15,7 +15,7 @@ import { BarChart, useBarChart } from "vue-chart-3";
 import { Chart, registerables } from "chart.js";
 
 const changeData = (data) => {
-  return data.map((element) => (element > 5 ? -element : element));
+  return data?.map((element) => (element > 5 ? -element : element)) || [];
 };
 
 Chart.register(...registerables);

@@ -40,8 +40,8 @@ export default {
   data() {
     return {
       userResult: computed(() => Object.values(userData)),
-      enterpriseResult: computed(() => Object.values(enterpriseData[0].result)),
-      enterpriseName: enterpriseData[0].enterprise,
+      enterpriseResult: null,
+      enterpriseName: null,
     };
   },
 };
