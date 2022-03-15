@@ -49,6 +49,26 @@ module.exports = {
         test: /\.svg$/,
         use: ["vue-loader", "vue-svg-loader"],
       },
+      {
+        test: /\.(png|jpe?g|gif|webp)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 10240,
+              fallback: {
+                loader: "file-loader",
+                options: {
+                  name: "img/[name].[contenthash:8].[ext]",
+                  esModule: false,
+                },
+              },
+              esModule: false,
+            },
+          },
+        ],
+        exclude: /node_modules/,
+      },
     ],
   },
 
