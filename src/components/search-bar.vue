@@ -21,7 +21,11 @@
     />
     <div class="suggestions" v-if="(focused && suggestions.length) || !matched">
       <ul v-if="matched">
-        <li v-for="(suggestion, index) in suggestions" :key="index">
+        <li
+          v-for="(suggestion, index) in suggestions"
+          :key="index"
+          @mousedown="select"
+        >
           {{ suggestion }}
         </li>
       </ul>
@@ -40,6 +44,13 @@ function getSuggestions(keyword) {
   return enterprises
     .map(({ enterprise }) => enterprise)
     .filter((enterprise) => query.test(enterprise));
+}
+
+function selectSuggestion(suggestion) {
+  this.query = suggestion;
+  this.text = suggestion;
+  this.$emit("search", suggestion);
+  this.suggestions = [];
 }
 
 export default {
@@ -69,12 +80,13 @@ export default {
     submit() {
       const suggestion = this.suggestions[0];
       if (suggestion) {
-        this.query = suggestion;
-        this.text = suggestion;
-        this.$emit("search", suggestion);
+        selectSuggestion.call(this, suggestion);
       } else {
         this.matched = false;
       }
+    },
+    select({ target: { textContent: suggestion } }) {
+      selectSuggestion.call(this, suggestion);
     },
     reset() {
       this.$emit("reset");
