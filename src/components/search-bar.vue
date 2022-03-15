@@ -73,6 +73,20 @@ function scrollIntoView() {
   });
 }
 
+function controlKeyboard(event, type) {
+  event.preventDefault();
+  if (event.isComposing) return;
+  this.keyboardMode = true;
+  if (type === "up") {
+    if (this.selectedIndex <= 0) return;
+    this.selectedIndex -= 1;
+  } else if (type === "down") {
+    if (this.selectedIndex >= this.suggestions.length - 1) return;
+    this.selectedIndex += 1;
+  }
+  scrollIntoView.call(this);
+}
+
 export default {
   name: "SearchBar",
   emits: ["search", "reset"],
@@ -91,6 +105,7 @@ export default {
   methods: {
     change({ target: { value } }) {
       this.matched = true;
+      this.selectedIndex = -1;
       this.suggestions = value ? getSuggestions(value.trim()) : [];
     },
     focus() {
@@ -117,18 +132,10 @@ export default {
       selectSuggestion.call(this, suggestion);
     },
     up(event) {
-      event.preventDefault();
-      this.keyboardMode = true;
-      if (this.selectedIndex === 0) return;
-      this.selectedIndex -= 1;
-      scrollIntoView.call(this);
+      controlKeyboard.call(this, event, "up");
     },
     down(event) {
-      event.preventDefault();
-      this.keyboardMode = true;
-      if (this.selectedIndex >= this.suggestions.length - 1) return;
-      this.selectedIndex += 1;
-      scrollIntoView.call(this);
+      controlKeyboard.call(this, event, "down");
     },
     mouseover({ target }) {
       if (this.keyboardMode) return;
