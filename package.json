@@ -46,6 +46,8 @@
   ],
   "dependencies": {
     "chart.js": "^3.7.1",
+    "file-loader": "6.2.0",
+    "url-loader": "4.1.1",
     "vue": "^3.2.31",
     "vue-chart-3": "^3.1.4"
   },
