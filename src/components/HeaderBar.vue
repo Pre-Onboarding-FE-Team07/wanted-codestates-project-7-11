@@ -31,7 +31,8 @@ header {
   padding: 0 16px;
   box-sizing: border-box;
   background: #ffffff;
-  border: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 4px;
 }
 
 .title-wrap {
