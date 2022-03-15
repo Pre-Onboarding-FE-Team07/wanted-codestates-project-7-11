@@ -14,6 +14,7 @@
       type="text"
       v-model.trim="text"
       placeholder="기업명을 검색하세요."
+      ref="input"
       @input="change"
       @focus="focus"
       @blur="blur"
@@ -57,11 +58,12 @@ function getSuggestions(keyword) {
 }
 
 function selectSuggestion(suggestion) {
-  this.query = suggestion;
   this.text = suggestion;
+  this.selectedIndex = -1;
+  if (this.query === suggestion) return;
   this.$emit("search", suggestion);
-  this.suggestions = [];
-  this.selectedSuggestionRef = null;
+  this.query = suggestion;
+  this.suggestions = [suggestion];
 }
 
 function scrollIntoView() {
@@ -106,6 +108,7 @@ export default {
 
       if (suggestion) {
         selectSuggestion.call(this, suggestion);
+        this.$refs.input.blur();
       } else {
         this.matched = false;
       }
