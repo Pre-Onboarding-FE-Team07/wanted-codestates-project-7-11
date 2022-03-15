@@ -54,33 +54,32 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   padding: 20px 16px;
-  width: 22rem;
-  top: 381px;
-  background: #ffffff;
+  box-sizing: border-box;
+  background: #fff;
 }
 
 .tab-container {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  width: 20rem;
+  width: 100%;
+  height: 45px;
   background: #f8f8f8;
   border: 1px solid #f2f2f2;
   box-sizing: border-box;
+  border-radius: 4px;
 }
 
 button {
   display: flex;
-  width: 6rem;
-  border-radius: 4px;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 14px 16px;
-  background: #f2f2f2;
-  border: none;
   flex-grow: 1;
+  padding: 14px 16px;
+  box-sizing: border-box;
+  background: #f2f2f2;
+  border-radius: 4px;
+  border: none;
   cursor: pointer;
 
   &.active {
@@ -91,15 +90,14 @@ button {
 
 img {
   width: 14px;
+  margin-right: 6px;
 }
 
 .tab-title {
-  width: 2rem;
-  font-style: normal;
-  font-weight: bold;
+  font-family: "Noto Sans";
+  font-weight: 400;
   font-size: 12px;
   line-height: 17px;
-  order: 1;
-  margin: 0 6px;
+  color: #727272;
 }
 </style>

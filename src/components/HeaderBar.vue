@@ -26,11 +26,10 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  position: absolute;
-  width: 22rem;
-  height: 4rem;
-  padding: 16px;
-  top: 0;
+  width: 100%;
+  height: 72px;
+  padding: 0 16px;
+  box-sizing: border-box;
   background: #ffffff;
   border: 1px solid lightgray;
 }
@@ -63,7 +62,7 @@ img {
 
 .reload {
   width: 7rem;
-  height: 1rem;
+  height: 22px;
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
