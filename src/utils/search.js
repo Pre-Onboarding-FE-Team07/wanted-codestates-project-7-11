@@ -31,20 +31,9 @@ function convertInitialToSyllable(ch) {
    * @see https://en.wikipedia.org/wiki/Korean_language_and_computers
    */
   const initial = ["ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ"];
-  const syllable = [
-    "가",
-    "까",
-    "나",
-    "다",
-    "따",
-    "라",
-    "마",
-    "바",
-    "빠",
-    "사",
-  ].map(utf16);
+  const syllable = ["가", "까", "나", "다", "따", "라", "마", "바", "빠", "사"];
   const initialToSyllable = initial.reduce(
-    (obj, init, i) => ({ ...obj, [init]: syllable[i] }),
+    (obj, init, i) => ({ ...obj, [init]: utf16(syllable[i]) }),
     {}
   );
 
