@@ -4,14 +4,14 @@
       <p class="subject">MATCHING RATE</p>
       <h1 class="title">나와 기업의 매칭률은?</h1>
     </div>
-    <div class="chart-wrap" v-if="enterprise">
+    <div class="chart-wrap" v-if="enterpriseResult">
       <DoughnutChart
         class="chart"
         :chart-data="chartData"
         :options="chartOptions"
       />
       <div class="result">
-        {{ enterprise.enterprise }} 기업은<br />나의 진단결과와
+        {{ enterpriseName }} 기업은<br />나의 진단결과와
         <p>
           <b>{{ matchRate }}%</b><span>일치합니다.</span>
         </p>
@@ -31,12 +31,16 @@ Chart.register(...registerables);
 export default defineComponent({
   props: {
     userResult: {
-      type: Object,
+      type: Array,
       default: null,
     },
-    enterprise: {
-      type: Object,
+    enterpriseResult: {
+      type: Array,
       default: null,
+    },
+    enterpriseName: {
+      type: String,
+      default: "",
     },
   },
   components: { DoughnutChart },
@@ -64,10 +68,10 @@ export default defineComponent({
     });
 
     watch(
-      () => props.enterprise,
+      () => props.enterpriseResult,
       () => {
-        const { userResult, enterprise } = props;
-        matchRate.value = createChart(userResult, enterprise);
+        const { userResult, enterpriseResult } = props;
+        matchRate.value = createChart(userResult, enterpriseResult);
       }
     );
 
@@ -75,22 +79,21 @@ export default defineComponent({
   },
 });
 
-const createChart = (userResult, enterprise) => {
-  if (!enterprise) {
+const createChart = (userResult, enterpriseResult) => {
+  if (!enterpriseResult) {
     return null;
   }
-  return Math.round(getMatchRate(userResult, enterprise.result));
+  return Math.round(getMatchRate(userResult, enterpriseResult));
 };
 
 const getMatchRate = (a, b) => {
   let rates = 0;
-  const keys = Object.keys(a);
-  keys.map((key) => {
-    let value = a[key] / b[key];
+  a.map((score, index) => {
+    let value = score / b[index];
     value = value > 1 ? 1 : value;
     rates += value;
   });
-  return (rates * 100) / keys.length;
+  return (rates * 100) / a.length;
 };
 </script>
 <style lang="scss" scoped>
