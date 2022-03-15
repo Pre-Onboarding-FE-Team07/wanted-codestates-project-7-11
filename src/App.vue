@@ -1,6 +1,6 @@
 <template>
   <header-bar-vue />
-  <search-bar-vue />
+  <search-bar-vue @search="search" @reset="reset" />
   <chart-pentagon-vue
     :user-result="userResult"
     :enterprise-result="enterpriseResult"
@@ -43,6 +43,19 @@ export default {
       enterpriseResult: null,
       enterpriseName: null,
     };
+  },
+  methods: {
+    search(enterprise) {
+      this.enterpriseName = enterprise;
+      const { result } = enterpriseData.find(
+        (data) => data.enterprise === enterprise
+      );
+      this.enterpriseResult = Object.values(result || {});
+    },
+    reset() {
+      this.enterpriseName = null;
+      this.enterpriseResult = null;
+    },
   },
 };
 </script>
