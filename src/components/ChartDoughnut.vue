@@ -31,11 +31,11 @@ Chart.register(...registerables);
 export default defineComponent({
   props: {
     userResult: {
-      type: Object,
+      type: Array,
       default: null,
     },
     enterpriseResult: {
-      type: Object,
+      type: Array,
       default: null,
     },
     enterpriseName: {
