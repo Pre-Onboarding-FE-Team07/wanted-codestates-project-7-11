@@ -47,10 +47,40 @@
 
 
 ## 심채윤
+헤더 및 탭 컴포넌트 구현
 
 ### 구현한 방법
+헤더 
+- `window.location.reload()`를 사용하여 다시 진단하기를 클릭시 페이지가 reload 되게 구현하였습니다. 
+
+탭
+- `v-for`를 사용하여 3개의 탭 버튼을 생성하였고, 3개의 탭 버튼에는 해당하는 이미지와 제목이 들어가게끔 구현하였습니다. `@click`으로 클릭된 탭에 `active css`를 적용 시켜 클릭된 탭은 `background-color: white, color: black`으로  되게끔 설정하였습니다. `$emit` 메서드는 하위 컴포넌트에서 상위 컴포넌트로 이벤트를 전달하기 위한 방식으로 상위 컴포넌트는 하위 컴포넌트에서 전달하는 값을 전달 받을 수 있는데 이를 사용하여 `clickTab`을 부모 컴포넌트인 `App.vue`로 전달하였습니다.
 
 ### 어려웠던 점 (에러 핸들링)
+`Vue`를 처음 접해봐서 문법과 기본 동작을 습득하는데 시간이 오래 걸렸습니다. `src`에 `assets`폴더를 만들어 이미지 파일들을 넣고 싶었는데 이미지가 불러와지지 않는 오류가 발생했습니다. `file-loader`를 설치한 뒤, `webpack.config.js` 안에 아래와 같이 코드를 넣어주어 이미지를 불러와질 수 있게 되었습니다. [참고한 링크](https://developpaper.com/import-picture-resource-404-to-display-object-20module-404-not-found/)
+```
+{
+        Test: / \ (JPE? G|png|gif) $/ I, // image file
+        use: [
+      {
+        loader: 'url-loader',
+        options: {
+          limit: 10240,
+          fallback: {
+            loader: 'file-loader',
+            options: {
+              name: 'img/[name].[contenthash:8].[ext]',
++              esModule: false
+            }
+          },
++          esModule: false
+        }
+      }
+    ],
+    exclude: /node_modules/
+}
+```
+
 
 ## 박진용
 
