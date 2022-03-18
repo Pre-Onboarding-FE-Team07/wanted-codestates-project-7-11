@@ -56,7 +56,7 @@ export default defineComponent({
     });
 
     const changeUserData = (data, num) => {
-      if (num !== 2) {
+      if (num !== 2 && data) {
         return data?.map((element) => (element > 5 ? -element : element));
       } else {
         return [];
@@ -64,7 +64,7 @@ export default defineComponent({
     };
 
     const changeEnterPriseData = (data, num) => {
-      if (num !== 1) {
+      if (num !== 1 && data) {
         return data?.map((element) => (element > 5 ? -element : element));
       } else {
         return [];
