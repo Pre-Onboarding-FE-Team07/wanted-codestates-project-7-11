@@ -4,6 +4,7 @@
   <chart-pentagon-vue
     :user-result="userResult"
     :enterprise-result="enterpriseResult"
+    :tab-num="tabNum"
   />
   <tabs-select-vue @click-tab="clickNum" />
   <chart-bar-view-vue

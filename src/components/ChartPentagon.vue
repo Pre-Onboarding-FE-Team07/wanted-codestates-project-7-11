@@ -10,6 +10,9 @@ import { defineComponent, watch, ref } from "vue";
 import { RadarChart } from "vue-chart-3";
 import { Chart, registerables } from "chart.js";
 
+const USER = 0;
+const ENTERPRISE = 1;
+
 Chart.register(...registerables);
 
 export default defineComponent({
@@ -23,6 +26,10 @@ export default defineComponent({
     enterpriseResult: {
       type: Array,
       default: null,
+    },
+    tabNum: {
+      type: Number,
+      required: true,
     },
   },
   setup(props) {
@@ -71,6 +78,42 @@ export default defineComponent({
       }
     );
     return { options, chartData };
+  },
+  methods: {
+    show(idx) {
+      this.chartData.datasets[idx].fill = true;
+      this.chartData.datasets[idx].showLine = true;
+    },
+    hide(idx) {
+      this.chartData.datasets[idx].fill = false;
+      this.chartData.datasets[idx].showLine = false;
+    },
+  },
+  beforeUpdate() {
+    const changeTab = {
+      tab: {
+        0: (enterpriseResult) => {
+          this.chartData.datasets[ENTERPRISE].data = [...enterpriseResult];
+          this.show(USER);
+          this.show(ENTERPRISE);
+        },
+        1: () => {
+          this.show(USER);
+          this.hide(ENTERPRISE);
+        },
+        2: (enterpriseResult) => {
+          this.chartData.datasets[ENTERPRISE].data = [...enterpriseResult];
+          this.hide(USER);
+          this.show(ENTERPRISE);
+        },
+      },
+      change(enterpriseResult, tabNum) {
+        console.log(enterpriseResult, tabNum);
+        if (enterpriseResult) this.tab[tabNum](enterpriseResult);
+        else this.tab[1]();
+      },
+    };
+    changeTab.change(this.enterpriseResult, this.tabNum);
   },
 });
 
