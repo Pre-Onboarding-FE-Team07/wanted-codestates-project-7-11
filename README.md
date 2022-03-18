@@ -56,8 +56,60 @@
 
 ### 구현한 방법
 
+[제출한 PR 목록](https://github.com/Pre-Onboarding-FE-Team07/wanted-codestates-project-7-11/pulls?q=is%3Apr+sort%3Aupdated-desc+is%3Aclosed+author%3Ajinyongp)
+
+추천 검색어 기반의 기업 검색창([SearchBar.vue](./src/components/SearchBar.vue))을 구현했습니다. 구현한 내용은 다음과 같습니다.
+
+- 검색 기능
+  - fuzzy 문자열 검색을 지원합니다. 이를 위한 정규표현식은 [`search.js`](./src/utils/search.js)에서 구현했습니다. 문자 사이마다 `.*?`을 삽입하여 떨어진 문자라도 검색할 수 있도록 했고, 한글 초성이나 부분 음절이 입력되어도 그를 포함하는 음절이 검색될 수 있도록 구현했습니다.
+  - `v-modal.trim` 속성을 이용해 자동으로 trim 처리되도록 했습니다.
+  - 엔터 키를 통해 검색합니다. 검색하면 `search` 이벤트가 발생합니다.
+  - 매 입력마다 추천 검색어를 추립니다.
+  - `x` 버튼을 클릭하면 `reset` 이벤트가 발생하고 검색창을 초기화합니다.
+
+- 선택 모드
+  - 마우스와 키보드를 사용하여 추천 검색어를 선택할 수 있습니다.
+  - 마우스를 움직이면 마우스 모드로, 키보드를 제어하면 키보드 모드로 자동 전환합니다.
+  - 키보드 모드일 때 위, 아래 키로 추천 검색어를 선택할 수 있고, 엔터 키로 검색할 수 있습니다.
+  - 키보드로 제어할 때 `scrollIntoView`를 이용해 스크롤 정중앙에 추천 검색어가 위치하도록 하여 편의성을 높였습니다.
+
+- 추천 검색어
+  - 추천 검색어 목록에 존재하는 기업만 검색할 수 있습니다.
+  - 추천하는 검색어가 없다면, `해당 기업 정보가 없습니다.` 메시지를 띄웁니다.
+  - 아무 검색어나 입력했다면, 최상단에 위치한 추천 검색어로 검색합니다.
+
 ### 어려웠던 점 (에러 핸들링)
 
+- `삼ㅅ`까지 작성했을 때 추천 검색어로 `삼성전자`가 추려지지 않는 문제가 있었습니다. 이 문제를 해결하기 위해 fuzzy 검색 기능을 적용했습니다. 한글의 경우, 초성이나 일부 음절만으로 이를 포함한 음절을 검색할 수 있게끔 했습니다. (e.g. 가 -> 각, 갈...)
+
+```js
+function koreanRegExp(ch) {
+  const offset = utf16("가");
+  if (/[가-힣]/.test(ch)) { // 음절을 처리합니다. ('가')
+    const charCode = utf16(ch) - offset;
+    if (charCode % 28 > 0) return ch; // 종성을 포함한 음절입니다. 완성된 음절이므로 그대로 반환합니다.
+    const begin = String.fromCharCode(charCode + offset); // 시작 음절입니다. ('가')
+    const end = String.fromCharCode(charCode + 27 + offset); // 종료 음절입니다. ('갛')
+    return `[${begin}-${end}]`;
+  } else if (/[ㄱ-ㅎ]/.test(ch)) { // 초성을 처리합니다. ('ㄱ')
+    const begin = convertInitialToSyllable(ch); // 시작 음절입니다. ('가')
+    const end = String.fromCharCode(utf16(begin) + 587); // 종료 음절입니다. ('깋')
+    return `[${begin}-${end}]`;
+  }
+  return ch; // 한글이 아닌 문자는 그대로 반환합니다.
+}
+```
+
+```js
+function convertInitialToSyllable(ch) {
+  const initial = ["ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ"];
+  const syllable = ["가", "까", "나", "다", "따", "라", "마", "바", "빠", "사"]; // 종성으로 사용되는 곁받침을 제외합니다.
+  const initialToSyllable = initial.reduce((obj, init, i) => ({ ...obj, [init]: utf16(syllable[i]) }), {});
+
+  // 'ㅅ' 이후부턴 초성('ㅅ')과 상응하는 음절('사')이 588만큼 동일한 거리를 가지고 있습니다.
+  return (initialToSyllable[ch] || (utf16(ch) - utf16("ㅅ")) * 588 + initialToSyllable["ㅅ"]);
+}
+```
 
 ## 문선경
 
