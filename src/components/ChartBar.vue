@@ -14,10 +14,6 @@ import { computed, defineComponent, ref, toRefs } from "vue";
 import { BarChart, useBarChart } from "vue-chart-3";
 import { Chart, registerables } from "chart.js";
 
-const changeData = (data) => {
-  return data?.map((element) => (element > 5 ? -element : element)) || [];
-};
-
 Chart.register(...registerables);
 
 export default defineComponent({
@@ -30,11 +26,15 @@ export default defineComponent({
       type: Array,
       default: null,
     },
+    tabNum: {
+      type: Number,
+      default: 0,
+    },
   },
   chartData: "BarProcess",
   components: { BarChart },
   setup(props) {
-    const { userResult, enterpriseResult } = toRefs(props);
+    const { userResult, enterpriseResult, tabNum } = toRefs(props);
     const options = ref({
       barThickness: 10,
 
@@ -55,15 +55,31 @@ export default defineComponent({
       },
     });
 
+    const changeUserData = (data, num) => {
+      if (num !== 2) {
+        return data?.map((element) => (element > 5 ? -element : element));
+      } else {
+        return [];
+      }
+    };
+
+    const changeEnterPriseData = (data, num) => {
+      if (num !== 1) {
+        return data?.map((element) => (element > 5 ? -element : element));
+      } else {
+        return [];
+      }
+    };
+
     const chartData = computed(() => ({
       labels: ["", "", "", "", ""],
       datasets: [
         {
-          data: changeData(userResult.value),
+          data: changeUserData(userResult.value, tabNum.value),
           backgroundColor: "#6E3CF9",
         },
         {
-          data: changeData(enterpriseResult.value),
+          data: changeEnterPriseData(enterpriseResult.value, tabNum.value),
           backgroundColor: "#FFD966",
         },
       ],

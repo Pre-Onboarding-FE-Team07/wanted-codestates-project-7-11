@@ -26,6 +26,7 @@
       <ChartBar
         :user-result="userResult"
         :enterprise-result="enterpriseResult"
+        :tab-num="tabNum"
       />
     </div>
     <div>
@@ -71,6 +72,10 @@ export default {
     enterpriseResult: {
       type: Array,
       default: null,
+    },
+    tabNum: {
+      type: Number,
+      required: true,
     },
   },
   components: { ChartBar },

@@ -5,10 +5,11 @@
     :user-result="userResult"
     :enterprise-result="enterpriseResult"
   />
-  <tabs-select-vue />
+  <tabs-select-vue @click-tab="clickNum" />
   <chart-bar-view-vue
     :user-result="userResult"
     :enterprise-result="enterpriseResult"
+    :tab-num="tabNum"
   />
   <chart-doughnut-vue
     :user-result="userResult"
@@ -42,6 +43,7 @@ export default {
       userResult: computed(() => Object.values(userData)),
       enterpriseResult: null,
       enterpriseName: null,
+      tabNum: 0,
     };
   },
   methods: {
@@ -55,6 +57,10 @@ export default {
     reset() {
       this.enterpriseName = null;
       this.enterpriseResult = null;
+    },
+    clickNum(num) {
+      // console.log(num);
+      this.tabNum = num;
     },
   },
 };
