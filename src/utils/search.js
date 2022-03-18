@@ -37,9 +37,9 @@ function convertInitialToSyllable(ch) {
     {}
   );
 
-  return (
+  return String.fromCharCode(
     initialToSyllable[ch] ||
-    (utf16(ch) - utf16("ㅅ")) * 588 + initialToSyllable["ㅅ"]
+      (utf16(ch) - utf16("ㅅ")) * 588 + initialToSyllable["ㅅ"]
   );
 }
 
@@ -54,11 +54,13 @@ function koreanRegExp(ch) {
   if (/[가-힣]/.test(ch)) {
     const charCode = utf16(ch) - offset;
     if (charCode % 28 > 0) return ch;
-    const begin = Math.floor(charCode / 28) * 28 + offset;
-    return `[\\u${begin.toString(16)}-\\u${(begin + 27).toString(16)}]`;
+    const begin = String.fromCharCode(charCode + offset);
+    const end = String.fromCharCode(charCode + 27 + offset);
+    return `[${begin}-${end}]`;
   } else if (/[ㄱ-ㅎ]/.test(ch)) {
     const begin = convertInitialToSyllable(ch);
-    return `[${ch}\\u${begin.toString(16)}-\\u${(begin + 587).toString(16)}]`;
+    const end = String.fromCharCode(utf16(begin) + 587);
+    return `[${begin}-${end}]`;
   }
   return ch;
 }
