@@ -6,14 +6,16 @@
   <section class="chart">
     <div>
       <div class="between" v-for="(score, i) in userResult" :key="i">
-        <section class="num">
+        <div class="num">
           <article :style="selectScoreColor(score)">
             <span>{{ score }} </span> / 10
           </article>
-        </section>
-        <section class="num">
-          <article :style="selectStandardColor(score)">{{ left[i] }}</article>
-        </section>
+        </div>
+        <div class="num">
+          <article :style="selectStandardColor(score)">
+            {{ personality[i][0] }}
+          </article>
+        </div>
       </div>
     </div>
     <div class="chartBar">
@@ -28,16 +30,16 @@
     </div>
     <div>
       <div class="between" v-for="(score, i) in userResult" :key="i">
-        <section class="num">
+        <div class="num">
           <article :style="selectStandardColor(10 - score)">
-            {{ right[i] }}
+            {{ personality[i][1] }}
           </article>
-        </section>
-        <section class="num">
+        </div>
+        <div class="num">
           <article :style="selectScoreColor(10 - score)">
             <span>{{ 10 - score }} </span> / 10
           </article>
-        </section>
+        </div>
       </div>
     </div>
   </section>
@@ -46,15 +48,19 @@
 <script>
 import ChartBar from "./ChartBar.vue";
 
-const leftResult = ["적극성", "자신감", "책임감", "개인성향", "수평사고"];
-const rightResult = ["수동성", "신중함", "무심함", "조직성향", "위계사고"];
+const personality = [
+  ["적극성", "수동성"],
+  ["자신감", "신중함"],
+  ["책임감", "무심함"],
+  ["개인성향", "조직성향"],
+  ["수평사고", "위계사고"],
+];
 
 export default {
   name: "ResultData",
   data() {
     return {
-      left: leftResult,
-      right: rightResult,
+      personality,
     };
   },
   props: {
@@ -88,6 +94,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$bar-width: 14rem;
 .title {
   padding: 1rem;
   text-align: center;
@@ -105,14 +112,15 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  font-size: 0.8rem;
   .between {
     display: flex;
     .num {
+      margin: 0.9rem;
       article {
-        padding: 1.1rem;
         font-weight: bold;
         span {
-          font-size: 1.2rem;
+          font-size: 1rem;
         }
       }
     }
@@ -120,24 +128,34 @@ export default {
 }
 
 .chartBar {
-  width: 20rem;
-  padding: 0;
+  width: $bar-width;
   position: relative;
   .line {
-    width: 20rem;
+    width: $bar-width;
     padding-top: 20px;
     position: absolute;
     #row {
-      width: 20rem;
-      border-top: 1px solid #ddd;
-      margin-bottom: 48px;
+      width: $bar-width;
+      border-top: 1px solid $color-gray;
+      margin-bottom: 3rem;
+      &:nth-child(3) {
+        margin-bottom: 39px;
+      }
+      &:nth-child(4) {
+        margin-bottom: 43px;
+      }
     }
   }
   #col {
-    position: absolute;
-    width: 10rem;
+    /* position: absolute; */
+    width: 7rem;
     height: 15rem;
-    border-right: 1px solid #ddd;
+    border-right: 1px solid $color-gray;
+  }
+}
+@include mobile {
+  .chart {
+    flex-direction: column;
   }
 }
 </style>
