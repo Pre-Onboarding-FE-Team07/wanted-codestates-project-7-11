@@ -61,9 +61,62 @@
 
 ## 문선경
 
+사용자의 성향 진단 결과와 기업의 성향을 시각화하여 비교할 수 있는 펜타곤 차트 구현.
+
 ### 구현한 방법
 
+- chart.js의 Radar chart를 사용해 펜타곤 차트를 구현했습니다.
+    
+    vue3 버전에서 chart.js를 사용하기 위해 vue-chart-3 패키지를 사용했습니다. 
+    
+    ```jsx
+    import { defineComponent } from 'vue';
+    import { RadarChart } from 'vue-chart-3';
+    import { Chart, registerables } from 'chart.js';
+    
+    Chart.register(...registerables);
+    
+    export default defineComponent({
+      name: 'ChartPentagon',
+      components: { RadarChart },
+    	// ...
+    ```
+    
+
+- setup() 메소드에서 `userResult`, `enterpriseResult()` props를 인자로 받아 컴포넌트 셋팅 작업을 해주었습니다.
+
+- RadarChart는 options과 chartData를 props으로 받는 컴포넌트이기 때문에,  
+    setup()에서 options 값과 chartData 값을 반환해 RadarChart 컴포넌트에 적용했습니다.  
+    (setup()에서 반환한 데이터는 data()에서 반환한 데이터처럼 사용 가능)
+    
+    ```jsx
+    <RadarChart :chart-data="chartData" :options="options" />
+    
+    setup() {
+    	// const options = ...;
+    	// const chartData = ...;
+    	return { options, chartData };
+    }
+    ```
+    
+
+- Chart.js 공식문서를 참고해서, 과제에 제시된 펜타곤 차트와 최대한 유사하게 차트를 구현했습니다.
+
 ### 어려웠던 점 (에러 핸들링)
+
+- Vue.js를 이번 과제를 하면서 처음 사용해봐서, Vue의 기본적인 동작 방식과 사용 방법을 파악하는 데 시간이 조금 소요되었습니다.
+    
+    참고한 사이트 : [Vue 공식문서(한국어 버전)](https://kr.vuejs.org/v2/guide/)
+    
+- 펜타곤 차트에 기본적인 데이터들을 나타내는 건 어렵지 않았지만, 과제에 제시된 펜타곤 차트와 동일하게 스타일링 하는 부분이 어려웠습니다.
+    예를 들어서 Radar 차트에 기본적으로 들어가는 범례를 제거하고 싶은데,  
+    범례를 제거하려면 차트 옵션 안의 플러그인 객체 안에서 `legend` 객체의 `display` 속성을 `false` 로 설정해야 했습니다.  
+    그 외에도 angleLines, grid, ticks, scale, scales 등 차트 용어를 정확히 알아야 공식 문서에서 해당하는 속성을 찾을 수 있는 등,  
+    options 설정 방법이 직관적이지 않고 options 객체 내부 중첩도 많아서  
+    공식문서를 꼼꼼히 살펴보더라도 원하는 옵션 설정 방법을 바로 알아내기가 어려웠습니다.  
+    공식문서와 함께 깃허브에서 레이더차트 구현 예제를 찾아보면서 구현했습니다.  
+    
+    참고한 사이트 : [Chart.js 공식문서](https://www.chartjs.org/docs/latest/)
 
 
 ## 예효은
