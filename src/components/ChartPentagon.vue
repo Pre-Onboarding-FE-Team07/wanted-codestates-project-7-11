@@ -1,7 +1,7 @@
 <template>
   <section>
     <RadarChart :chart-data="chartData" :options="options" />
-    <img src="radar_cat.png" />
+    <img src="../assets/radar_cat.png" />
   </section>
 </template>
 
@@ -28,6 +28,7 @@ export default defineComponent({
   setup(props) {
     const options = {
       reposive: true,
+      maintainAspectRatio: false,
       plugins: {
         legend: { display: false },
         tooltip: { enabled: false },

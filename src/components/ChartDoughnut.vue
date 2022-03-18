@@ -44,14 +44,6 @@ export default defineComponent({
     },
   },
   components: { DoughnutChart },
-  data() {
-    return {
-      chartOptions: {
-        type: Object,
-        default: {},
-      },
-    };
-  },
   setup(props) {
     let matchRate = ref(0);
     let chartData = reactive({
@@ -67,6 +59,10 @@ export default defineComponent({
       ],
     });
 
+    const chartOptions = ref({
+      maintainAspectRatio: false,
+    });
+
     watch(
       () => props.enterpriseResult,
       () => {
@@ -75,7 +71,7 @@ export default defineComponent({
       }
     );
 
-    return { chartData, matchRate };
+    return { chartData, matchRate, chartOptions };
   },
 });
 

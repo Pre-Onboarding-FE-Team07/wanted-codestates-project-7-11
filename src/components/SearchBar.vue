@@ -232,6 +232,8 @@ section {
     border-radius: 4px;
     font-size: 14px;
     color: #121212;
+    background-color: white;
+    z-index: 1;
 
     li {
       border: 4px;

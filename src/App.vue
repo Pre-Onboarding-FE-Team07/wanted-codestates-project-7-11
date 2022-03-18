@@ -1,6 +1,6 @@
 <template>
   <header-bar-vue />
-  <search-bar-vue />
+  <search-bar-vue @search="search" @reset="reset" />
   <chart-pentagon-vue
     :user-result="userResult"
     :enterprise-result="enterpriseResult"
@@ -19,8 +19,8 @@
 
 <script>
 import { computed } from "vue";
-import userData from "./datas/user.json";
-import enterpriseData from "./datas/enterprise.json";
+import userData from "./data/user.json";
+import enterpriseData from "./data/enterprise.json";
 import HeaderBarVue from "./components/HeaderBar.vue";
 import SearchBarVue from "./components/SearchBar.vue";
 import ChartPentagonVue from "./components/ChartPentagon.vue";
@@ -40,9 +40,22 @@ export default {
   data() {
     return {
       userResult: computed(() => Object.values(userData)),
-      enterpriseResult: computed(() => Object.values(enterpriseData[0].result)),
-      enterpriseName: enterpriseData[0].enterprise,
+      enterpriseResult: null,
+      enterpriseName: null,
     };
+  },
+  methods: {
+    search(enterprise) {
+      this.enterpriseName = enterprise;
+      const { result } = enterpriseData.find(
+        (data) => data.enterprise === enterprise
+      );
+      this.enterpriseResult = Object.values(result || {});
+    },
+    reset() {
+      this.enterpriseName = null;
+      this.enterpriseResult = null;
+    },
   },
 };
 </script>

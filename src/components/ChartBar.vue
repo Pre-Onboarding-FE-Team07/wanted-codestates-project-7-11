@@ -2,9 +2,9 @@
   <BarChart
     v-bind="barChartProps"
     :style="{
-      width: '15rem',
-      height: '15rem',
-      alignItems: 'center',
+      position: 'absolute',
+      top: 0,
+      marginLeft: '-36px',
     }"
   />
 </template>
@@ -15,7 +15,7 @@ import { BarChart, useBarChart } from "vue-chart-3";
 import { Chart, registerables } from "chart.js";
 
 const changeData = (data) => {
-  return data.map((element) => (element > 5 ? -element : element));
+  return data?.map((element) => (element > 5 ? -element : element)) || [];
 };
 
 Chart.register(...registerables);
@@ -37,7 +37,9 @@ export default defineComponent({
     const { userResult, enterpriseResult } = toRefs(props);
     const options = ref({
       barThickness: 10,
+
       responsive: true,
+      maintainAspectRatio: false,
       indexAxis: "y",
       scales: {
         x: {

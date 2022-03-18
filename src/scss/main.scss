@@ -1,11 +1,24 @@
 $color--black: #000;
 $color-white: #fff;
+$color-purple: #6E3CF9;
+$color-yellow: #FFD966;
+$color-gray: #ddd;
+
+@mixin mobile{ 
+    @media (max-width: 767px){ 
+        @content; 
+    } 
+} 
+@mixin tablet{ 
+    @media (min-width: 768px) and (max-width: 1023px){ 
+        @content; 
+    } 
+}
 
 body{
-    background-color: $color--black;
-    h1{
-        color: $color-white;
-        font-size: 40px;
-        display: flex;
+    display: grid;
+    place-items: center;
+    #app{
+        max-width: 600px;
     }
 }
